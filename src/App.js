@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import MoviePage from "./components/MoviePage";
 import {MovieProvider} from "./components/MovieContext";

@@ -51,7 +51,7 @@ function MoviePage() {
         apiUtils.getMovie(id).then((data) => setMovie(data));
         apiUtils.getVideos(id).then((data) => setVideo(data));
         apiUtils.getMovieImgs(id).then((data) => setImgs(data));
-    }, []);
+    }, [id]);
     console.log(imgs);
     return (
         <div className={classes.root}>
@@ -69,7 +69,7 @@ function MoviePage() {
                         width="100%"
                     />
                     <Box className={classes.blockMargin}>
-                        {movie.genres != undefined
+                        {movie.genres !== undefined
                             ? movie.genres.map((genre) => (
                                   <Chip
                                       label={genre.name}

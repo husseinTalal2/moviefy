@@ -1,5 +1,5 @@
 import { Box, Typography } from "@material-ui/core";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useStyles } from "../Styles";
 import { apiUtils } from "./API";
 import { MovieContext } from "./MovieContext";
@@ -14,7 +14,7 @@ function Home() {
             //setMovies(data);
             dispatch({ type: "SET_MOVIES", movies: data })
         });
-    },[]);
+    },[dispatch]);
     
     return (
         <main>

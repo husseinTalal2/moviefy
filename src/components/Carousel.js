@@ -4,7 +4,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 
 const MyCarousel = ({ imgs }) => {
     console.log(imgs);
-    return imgs.length != 0 ? (
+    return imgs.length !== 0 ? (
         <Carousel
             autoplay
             itemWidth= "100%"
@@ -46,10 +46,11 @@ const MyCarousel = ({ imgs }) => {
                 }
               }}
         >
-            {imgs != undefined
+            {imgs !== undefined
                 ? imgs.map((img) => (
                       <img
                           src={`https://image.tmdb.org/t/p/w400${img.file_path}`}
+                          alt="movie imgs"
                       />
                   ))
                 : ""}

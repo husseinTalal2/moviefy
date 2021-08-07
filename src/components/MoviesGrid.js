@@ -19,7 +19,7 @@ function MoviesGrid({ movies }) {
                 alignItems="center"
                 alignContent="center"
             >
-                {movies != undefined
+                {movies !== undefined
                     ? movies.map((movie) => {
                           return (
                               <Grid
