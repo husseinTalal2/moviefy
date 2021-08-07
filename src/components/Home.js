@@ -1,26 +1,29 @@
 import { Box, Typography } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useStyles } from "../Styles";
 import { apiUtils } from "./API";
+import { MovieContext } from "./MovieContext";
 import MoviesGrid from "./MoviesGrid";
 
 function Home() {
     const classes = useStyles();
-    const [movies, setMovies] = useState([]);
+    //const [movies, setMovies] = useState([]);
+    const [state, dispatch] = useContext(MovieContext);
     useEffect(() => {
         apiUtils.getAll().then((data) => {
-            setMovies(data);
+            //setMovies(data);
+            dispatch({ type: "SET_MOVIES", movies: data })
         });
     },[]);
-
+    
     return (
         <main>
             <Box className={classes.flexCenter}>
                 <Typography className={classes.title} variant="h3">
-                    Discover movies
+                    DISCOVER MOVIES
                 </Typography>
             </Box>
-            <MoviesGrid movies={movies} />
+            <MoviesGrid movies={state.movies} />
         </main>
     );
 }

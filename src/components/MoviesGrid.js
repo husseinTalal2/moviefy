@@ -19,13 +19,21 @@ function MoviesGrid({ movies }) {
                 alignItems="center"
                 alignContent="center"
             >
-                {movies.map((movie) => {
-                    return (
-                        <Grid item xs={12} md={4} lg={3} key={movie.title}>
-                            <MovieCard movie={movie} />
-                        </Grid>
-                    );
-                })}
+                {movies != undefined
+                    ? movies.map((movie) => {
+                          return (
+                              <Grid
+                                  item
+                                  xs={12}
+                                  md={4}
+                                  lg={3}
+                                  key={movie.title}
+                              >
+                                  <MovieCard movie={movie} />
+                              </Grid>
+                          );
+                      })
+                    : ""}
             </Grid>
         </div>
     );

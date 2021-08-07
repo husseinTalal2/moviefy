@@ -11,10 +11,34 @@ apiUtils.getAll = async () => {
     return movies.data.results;
 };
 
-apiUtils.getMovieImg = async (id) => {
-    const img = await axios.get(
+apiUtils.getMovieImgs = async (id) => {
+    const imgs = await axios.get(
         `${BASE_URL}movie/${id}/images?api_key=${API_KEY}`
     );
-
-    return img.data.backdrops[0].file_path;
+        //console.log(imgs.data);
+    return imgs.data.backdrops;
 };
+
+apiUtils.getMovie = async (id) => {
+    const movie = await axios.get(
+        `${BASE_URL}movie/${id}?api_key=${API_KEY}` 
+    );
+    
+    return movie.data;
+}
+
+apiUtils.getVideos = async (id) => {
+    const videos = await axios.get(
+        `${BASE_URL}movie/${id}/videos?api_key=${API_KEY}` 
+    );
+
+    return videos.data.results[0].key;
+}
+
+apiUtils.search = async (query) => {
+    const results = await axios.get(
+        `${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}` 
+    );
+    
+    return results.data.results
+}
